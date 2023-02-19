@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --margin: 10%;
+  --font-size: 22px;
+  --line-height: 24px;
+}
+
+#root > div > div > div.w-md-editor-content {
+  margin-left: var(--margin);
+  margin-right: var(--margin);
+}
+
+.w-md-editor-text-pre > code,
+.w-md-editor-text-input {
+  font-size: var(--font-size) !important;
+  line-height: var(--line-height) !important;
+}
+
+#root
+  > div
+  > div
+  > div.w-md-editor-toolbar.bottom
+  > ul:nth-child(1)
+  > li:nth-child(17)
+  > div {
+  bottom: 40px;
+}
+
+#root
+  > div
+  > div
+  > div.w-md-editor-toolbar.bottom
+  > ul:nth-child(1)
+  > li:nth-child(18)
+  > div {
+  bottom: 40px;
+}

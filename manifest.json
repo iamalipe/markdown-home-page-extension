@@ -1,0 +1,10 @@
+{
+  "name": "Markdown Home Page",
+  "description": "Simple Markdown Home page",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": ["storage"]
+}
