@@ -1,8 +1,18 @@
 {
   "name": "Markdown Home Page",
-  "description": "Simple Markdown Home page",
-  "version": "0.1.0",
+  "description": "Transform your browser's home page into a simple and efficient Markdown editor with this extension. Take notes, write to-do lists, or brainstorm ideas directly in your browser with Markdown formatting. This extension provides a clean and minimalist interface that's perfect for distraction-free writing. Start taking notes right away with no setup required. Get organized and productive with this powerful yet easy-to-use Markdown extension.",
+  "version": "1.0.0",
+  "author": {
+    "email": "21abhiseck1997@gmail.com"
+  },
   "manifest_version": 3,
+  "default_locale": "en",
+  "icons": {
+    "16": "note16.png",
+    "32": "note32.png",
+    "64": "note64.png",
+    "128": "note128.png"
+  },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },

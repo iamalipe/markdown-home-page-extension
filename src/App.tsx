@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MDEditor, {
   commands,
   getCommands,
@@ -12,6 +12,15 @@ import {
   AiOutlineAlignRight,
 } from "react-icons/ai";
 
+const init_text = `
+# Welcome to the Markdown note-taking extension!
+
+This extension allows you to take notes in Markdown style directly in your browser. With Markdown, you can easily format your notes with headings, bold and italic text, lists, and more.
+We hope you enjoy using this extension for all your note-taking needs!
+
+[Markdown Guide](https://www.markdownguide.org/)
+`;
+
 const App = () => {
   const [value, setValue] = useState<string | null>(
     window.localStorage.getItem("data")
@@ -19,9 +28,16 @@ const App = () => {
   const [align, setAlign] = useState<"left" | "center" | "right">("left");
   const [fontSize, setFontSize] = useState(16);
 
+  useEffect(() => {
+    const res = window.localStorage.getItem("init_text");
+    if (res === null || res === "0") {
+      setValue(init_text);
+    }
+  }, []);
+
   // document.documentElement.setAttribute('data-color-mode', 'dark')
   // document.documentElement.setAttribute('data-color-mode', 'light')
-
+  // TODO layoutAlignCommands need to finished
   const layoutAlignCommands: ICommand = {
     name: "layoutAlign",
     keyCommand: "layoutAlign",
@@ -55,6 +71,7 @@ const App = () => {
     },
   };
 
+  // TODO themeCommands need to finished
   const themeCommands: ICommand = commands.group([], {
     name: "Theme",
     groupName: "theme",
@@ -83,7 +100,7 @@ const App = () => {
     // },
     buttonProps: { "aria-label": "Theme" },
   });
-
+  // TODO fontSizeCommands need to finished
   const fontSizeCommands: ICommand = commands.group([], {
     name: "fontSize",
     groupName: "fontSize",
@@ -140,6 +157,11 @@ const App = () => {
 
   const onChange = (e: string | undefined) => {
     if (e === undefined) return;
+
+    const res = window.localStorage.getItem("init_text");
+    if (res !== null || res === "1") {
+      window.localStorage.setItem("init_text", "0");
+    }
     window.localStorage.setItem("data", e);
     setValue(e);
   };
@@ -151,12 +173,11 @@ const App = () => {
         draggable={"false"}
         value={value ? value : undefined}
         onChange={onChange}
-        // onChange={setValue}
         toolbarBottom={true}
         previewOptions={{
           rehypePlugins: [[rehypeSanitize]],
         }}
-        commands={[...getCommands(), themeCommands, fontSizeCommands]}
+        commands={[...getCommands()]}
         extraCommands={[
           commands.codeEdit,
           commands.codeLive,
