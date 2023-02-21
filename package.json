@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@uiw/react-md-editor": "^3.20.5",
+    "easymde": "^2.18.0",
     "framer-motion": "^9.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-markdown": "^8.0.5",
+    "react-simplemde-editor": "^5.2.0",
     "rehype-sanitize": "^5.0.1",
     "remark-gfm": "^3.0.1",
     "rich-markdown-editor": "^11.21.3",
