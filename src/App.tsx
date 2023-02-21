@@ -30,6 +30,8 @@ const App = () => {
 
   useEffect(() => {
     const res = window.localStorage.getItem("init_text");
+    console.log(res);
+
     if (res === null || res === "0") {
       setValue(init_text);
     }
@@ -159,8 +161,8 @@ const App = () => {
     if (e === undefined) return;
 
     const res = window.localStorage.getItem("init_text");
-    if (res !== null || res === "1") {
-      window.localStorage.setItem("init_text", "0");
+    if (res === null || res === "0") {
+      window.localStorage.setItem("init_text", "1");
     }
     window.localStorage.setItem("data", e);
     setValue(e);
