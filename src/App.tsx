@@ -1,16 +1,4 @@
-import { useEffect, useState } from "react";
-import MDEditor, {
-  commands,
-  getCommands,
-  ICommand,
-} from "@uiw/react-md-editor";
-import rehypeSanitize from "rehype-sanitize";
-import { MdOutlineDesignServices } from "react-icons/md";
-import {
-  AiOutlineAlignCenter,
-  AiOutlineAlignLeft,
-  AiOutlineAlignRight,
-} from "react-icons/ai";
+
 
 const init_text = `
 # Welcome to the Markdown note-taking extension!
@@ -187,6 +175,30 @@ const App = () => {
         ]}
       />
     </div>
+  const [value, setValue] = useState("Initial");
+
+  const onChange = useCallback((value: string) => {
+    setValue(value);
+  }, []);
+
+  const autofocusNoSpellcheckerOptions = useMemo(() => {
+    return {
+      autofocus: true,
+      spellChecker: true,
+      theme: "darcula",
+    } as Options;
+  }, []);
+
+  return (
+    <SimpleMdeReact
+      style={{
+        height: "100vh",
+        width: "100vw",
+      }}
+      options={autofocusNoSpellcheckerOptions}
+      value={value}
+      onChange={onChange}
+    />
   );
 };
 
