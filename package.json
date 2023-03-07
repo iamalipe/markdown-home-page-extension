@@ -1,7 +1,17 @@
 {
   "name": "markdown-home-page-extension",
+  "description": "Transform your home page into a distraction-free Markdown editor. Get organized and productive with this easy-to-use extension.",
+  "author": {
+    "email": "Abhiseck@outlook.com",
+    "name": "Abhiseck Bhattacharya"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamalipe/markdown-home-page-extension.git"
+  },
+  "homepage": "https://github.com/iamalipe/markdown-home-page-extension",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
